@@ -59,7 +59,7 @@ resource "aws_iam_role_policy_attachment" "lambda_dynamodb_attachment" {
 
 # ECS Execution Role
 resource "aws_iam_role" "ecs_execution_role" {
-  name = "GnomiAIRestApiECSExecutionRole"
+  name = "apiexecutionrole"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
