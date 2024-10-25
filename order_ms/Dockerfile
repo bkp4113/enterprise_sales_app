@@ -1,21 +1,3 @@
-FROM public.ecr.aws/lambda/python:3.12
-
-RUN dnf -y install git
-COPY requirements.txt ./
-RUN python3.12 -m pip install wheel
-RUN python3.12 -m pip install setuptools
-RUN python3.12 -m pip install --upgrade build
-RUN python3.12 -m pip install -r requirements.txt -t .
-
-COPY app/ ./app
-
-COPY service/ ./service/
-
-COPY util/ ./util/
-
-# CMD ["app.lambda_handler"]
-# CMD ["authorizer.lambda_handler"]
-
 FROM python:3.12.5-alpine3.20
 
 RUN apk add --update python3 py3-pip build-base git
